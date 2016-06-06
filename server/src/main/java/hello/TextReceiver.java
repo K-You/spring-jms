@@ -13,9 +13,10 @@ public class TextReceiver {
     ConfigurableApplicationContext context;
 
     @JmsListener(destination = "text-destination")
-    @SendTo("text-destination")
-    public void receiveMessage(String message) {
+    @SendTo("other-destination")
+    public String receiveMessage(String message) {
         System.out.println("Received message : " + message);
+        return message;
     }
 
 }

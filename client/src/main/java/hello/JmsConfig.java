@@ -32,7 +32,7 @@ public class JmsConfig {
     private String brokerUrl;
 
     //check env vars
-    @Value("${isServer:true}")
+    @Value("${isServer:false}")
     private boolean isServer;
 
     @Bean

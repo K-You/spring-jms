@@ -1,21 +1,20 @@
 package hello;
 
+import hello.entities.Pony;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jms.annotation.JmsListener;
-import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TextReceiver {
+public class ObjectReceiver {
 
     @Autowired
     ConfigurableApplicationContext context;
 
-    @JmsListener(destination = "text-destination")
-    @SendTo("text-destination")
-    public void receiveMessage(String message) {
-        System.out.println("Received message : " + message);
+    @JmsListener(destination = "object-destination")
+    public void receiveMessage(Pony poney) {
+        System.out.println("Received object: " + poney);
     }
 
 }
